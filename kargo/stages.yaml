@@ -169,9 +169,21 @@ spec:
           path: ./out
           message: ${{ outputs['update-image'].commitMessage }}
       - uses: git-push
+        as: push
         config:
           path: ./out
+          generateTargetBranch: true
+      - uses: git-open-pr
+        as: open-pr
+        config:
+          repoURL: ${{ vars.gitRepo }}
+          sourceBranch: ${{ outputs.push.branch }}
           targetBranch: env/prod
+      - uses: git-wait-for-pr
+        as: wait-for-pr
+        config:
+          repoURL: ${{ vars.gitRepo }}
+          prNumber: ${{ outputs['open-pr'].pr.id }}
       - uses: argocd-update
         config:
           apps:
