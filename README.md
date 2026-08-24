@@ -46,10 +46,10 @@ Argo CD then watches the appropriate environment branch and reconciles the rende
 
 Design Decisions: 
 
-1. Highlighting the Rendered Manifests Pattern
+1. Highlighting the Rendered Manifests Pattern:
 Kustomize was selected because the existing tutorial already uses Kustomize
 
-2. Integrating the Pull Request approval into the workflow for Prod Promotion
+2. Integrating the Pull Request approval into the workflow for Prod Promotion:
 The original tutorial workflow directly pushed the promoted manifests to the env/prod branch.
 For a production environment, I changed this behavior so that Kargo:
 
