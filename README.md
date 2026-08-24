@@ -12,7 +12,7 @@ Ultimately, you will have a Kubernetes cluster, with Applications deployed using
 This project demonstrates a GitOps-based application delivery workflow using Kargo, Argo CD, Kubernetes, Kustomize, and GitHub Container Registry (GHCR).
 
 Overall Design:
-
+```text
 Container Registry
       │
       │ New image
@@ -36,7 +36,7 @@ Kustomize rendering
       │
       ▼
 Kubernetes cluster
-
+```
 The application is promoted through three environments:
 dev → staging → prod
 
